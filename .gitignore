@@ -1,0 +1,14 @@
+# Build files
+*.o
+MYMETA.*
+Makefile
+Makefile.old
+/Ogre.bs
+/Ogre.c
+pm_to_blib
+blib
+
+# examples
+Ogre.log
+ogre.cfg
+plugins.cfg

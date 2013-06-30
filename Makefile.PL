@@ -121,6 +121,9 @@ sub varied_args {
         'INC'               => join(' ', @cflags),
         'LIBS'              => join(' ', @libs),
         (@defines ? ('DEFINE' => join(' ', @defines)) : ()),
+        'depend'            => {
+            'Ogre.c'        => join(' ', <xs/*.xs>),
+        },
     };
 }
 

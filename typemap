@@ -235,6 +235,9 @@ O_CONTROLLERFUNCTIONREAL
 O_CONTROLLERVALUEREAL
 	TMOGRE_CONTVAL_IN($arg, $var)
 
+O_TMOGRE
+	TMOGRE_IN($arg, $var, $type, $Package, $func_name, ${my $ntt = $type; $ntt =~ s/^const\s+|\bOgre::|\s*\**//g; \$ntt})
+
 O_ANIMABLEOBJECT
 	TMOGRE_IN($arg, $var, $type, $Package, $func_name, AnimableObject)
 
@@ -621,6 +624,9 @@ S_WORLDFRAGMENT
 
 S_MANUALOBJECTSECTION
 	TMOGRE_OUT($arg, $var, ManualObject::ManualObjectSection)
+
+O_TMOGRE
+	TMOGRE_OUT($arg, $var, ${my $ntt = $type; $ntt =~ s/^const\s+|\bOgre::|\s*\**//g; \$ntt})
 
 O_ANIMABLEOBJECT
 	TMOGRE_OUT($arg, $var, AnimableObject)

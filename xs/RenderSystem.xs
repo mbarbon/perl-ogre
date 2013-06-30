@@ -94,10 +94,21 @@ RenderSystem::getColourVertexElementType()
 void
 RenderSystem::setStencilCheckEnabled(bool enabled)
 
+#if OGRE_VERSION < 0x010900
+
 void
 RenderSystem::setStencilBufferParams(int func=CMPF_ALWAYS_PASS, uint32 refValue, uint32 mask=0xFFFFFFFF, int stencilFailOp=SOP_KEEP, int depthFailOp=SOP_KEEP, int passOp=SOP_KEEP, bool twoSidedOperation=false)
   C_ARGS:
     (CompareFunction)func, refValue, mask, (StencilOperation)stencilFailOp, (StencilOperation)depthFailOp, (StencilOperation)passOp, twoSidedOperation
+
+#else
+
+void
+RenderSystem::setStencilBufferParams(int func=CMPF_ALWAYS_PASS, uint32 refValue, uint32 compareMask=0xFFFFFFFF, uint32 writeMask=0xFFFFFFFF, int stencilFailOp=SOP_KEEP, int depthFailOp=SOP_KEEP, int passOp=SOP_KEEP, bool twoSidedOperation=false)
+  C_ARGS:
+    (CompareFunction)func, refValue, compareMask, writeMask, (StencilOperation)stencilFailOp, (StencilOperation)depthFailOp, (StencilOperation)passOp, twoSidedOperation
+
+#endif
 
 void
 RenderSystem::setVertexDeclaration(VertexDeclaration *decl)

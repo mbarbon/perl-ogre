@@ -8,7 +8,7 @@ MaterialManager::getSingletonPtr()
 Material *
 MaterialManager::load(String name, String group, bool isManual=false, ManualResourceLoader *loader=0)
   CODE:
-    MaterialPtr mat = THIS->load(name, group, isManual, loader);
+    MaterialPtr mat = THIS->load(name, group, isManual, loader).staticCast<Material>();
     RETVAL = mat.getPointer();
   OUTPUT:
     RETVAL

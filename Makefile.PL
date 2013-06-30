@@ -77,6 +77,28 @@ sub varied_args {
     # Get lib dirs
     push @libs, pkg_config($pkgname, 'libs');
 
+    my $version = pkg_config($pkgname, 'modversion');
+
+    # Ogre 1.9 moved overlays to a separate component
+    if ($version =~ /^1\.9/ || $version !~ /^1/) {
+        # Make sure OGRE-Overlay libs are known by pkg-config
+        my $pkgname = 'OGRE-Overlay';
+
+
+        push @errors, check_pkg_config($pkgname, $OGRE_REQ_VERSION);
+
+        if (@errors) {
+            die(map { "$_$/" } @errors);
+        }
+
+        # Get include dirs and defines
+        push @cflags, pkg_config($pkgname, 'cflags');
+
+        # Get lib dirs
+        push @libs, pkg_config($pkgname, 'libs');
+    }
+
+
     # Check if Gtk+ is installed
     $pkgname = 'gtk+-2.0';
 

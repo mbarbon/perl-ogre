@@ -8,7 +8,7 @@ SkeletonManager::getSingletonPtr()
 Skeleton *
 SkeletonManager::load(String name, String group, bool isManual=false, ManualResourceLoader *loader=0)
   CODE:
-    SkeletonPtr skel = THIS->load(name, group, isManual, loader);
+    SkeletonPtr skel = THIS->load(name, group, isManual, loader).staticCast<Skeleton>();
     RETVAL = skel.getPointer();
   OUTPUT:
     RETVAL

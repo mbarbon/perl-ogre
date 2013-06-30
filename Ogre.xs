@@ -11,7 +11,9 @@
 #include "PerlOGREControllerFunction.h"
 #include "PerlOGREControllerValue.h"
 
+#if OGRE_VERSION < 0x010900
 #include <OGRE/OgreProgressiveMesh.h>
+#endif
 
 // This object manages FrameListeners, WindowEventListeners...
 PerlOGRECallbackManager pogreCallbackManager;
@@ -948,12 +950,13 @@ BOOT:
 	newCONSTSUB(stash_Ogre__Plane, "POSITIVE_SIDE", newSViv(Ogre::Plane::POSITIVE_SIDE));
 	newCONSTSUB(stash_Ogre__Plane, "NEGATIVE_SIDE", newSViv(Ogre::Plane::NEGATIVE_SIDE));
 	newCONSTSUB(stash_Ogre__Plane, "BOTH_SIDE", newSViv(Ogre::Plane::BOTH_SIDE));
-
+#if OGRE_VERSION < 0x010900
 	HV *stash_Ogre__ProgressiveMesh = gv_stashpv("Ogre::ProgressiveMesh", TRUE);
 
 	// enum: VertexReductionQuota
 	newCONSTSUB(stash_Ogre__ProgressiveMesh, "VRQ_CONSTANT", newSViv(Ogre::ProgressiveMesh::VRQ_CONSTANT));
 	newCONSTSUB(stash_Ogre__ProgressiveMesh, "VRQ_PROPORTIONAL", newSViv(Ogre::ProgressiveMesh::VRQ_PROPORTIONAL));
+#endif
 
 	HV *stash_Ogre__QueuedRenderableCollection = gv_stashpv("Ogre::QueuedRenderableCollection", TRUE);
 

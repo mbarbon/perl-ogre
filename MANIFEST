@@ -72,6 +72,7 @@ Ogre/Overlay.pm
 Ogre/OverlayContainer.pm
 Ogre/OverlayElement.pm
 Ogre/OverlayManager.pm
+Ogre/OverlaySystem.pm
 Ogre/PanelOverlayElement.pm
 Ogre/Particle.pm
 Ogre/ParticleAffector.pm
@@ -94,6 +95,7 @@ Ogre/Ray.pm
 Ogre/RaySceneQuery.pm
 Ogre/RegionSceneQuery.pm
 Ogre/RenderOperation.pm
+Ogre/RenderQueueListener.pm
 Ogre/RenderSystem.pm
 Ogre/RenderSystemCapabilities.pm
 Ogre/RenderTarget.pm
@@ -260,6 +262,7 @@ xs/Overlay.xs
 xs/OverlayContainer.xs
 xs/OverlayElement.xs
 xs/OverlayManager.xs
+xs/OverlaySystem.xs
 xs/PanelOverlayElement.xs
 xs/Particle.xs
 xs/ParticleAffector.xs

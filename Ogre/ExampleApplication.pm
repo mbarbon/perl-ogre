@@ -21,6 +21,7 @@ sub new {
         mResourcePath  => '',
         mCamera        => undef,
         mSceneMgr      => undef,
+        mOverlayMgr    => undef,
         mWindow        => undef,
     }, $pkg;
 
@@ -123,6 +124,10 @@ sub chooseSceneManager {
     # Create the SceneManager, in this case a generic one
     $self->{mSceneMgr} = $self->{mRoot}->createSceneManager(ST_GENERIC,
                                                             "ExampleSMInstance");
+    if (!Ogre::OverlayManager->getSingletonPtr) {
+        $self->{mOverlayMgr} = Ogre::OverlaySystem->new;
+        $self->{mSceneMgr}->addRenderQueueListener($self->{mOverlayMgr});
+    }
 }
 
 sub createCamera {

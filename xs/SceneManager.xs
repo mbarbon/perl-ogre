@@ -402,9 +402,12 @@ SceneManager::manualRender(rend, pass, vp, worldMatrix, viewMatrix, projMatrix, 
 RenderQueue *
 SceneManager::getRenderQueue()
 
-## xxx:
-## void 	addRenderQueueListener (RenderQueueListener *newListener)
-## void 	removeRenderQueueListener (RenderQueueListener *delListener)
+# xxx need to handle ownership
+void
+SceneManager::addRenderQueueListener (RenderQueueListener *newListener)
+
+void
+SceneManager::removeRenderQueueListener (RenderQueueListener *delListener)
 
 void
 SceneManager::addSpecialCaseRenderQueue(uint8 qid)
